@@ -5,7 +5,7 @@
 This is Fauceteer, a CLI made with Node.js for Spigot!
 
 ## Install
-```npm i -g fauceteer```
+```npm i -g fauceteer-cli```
 
 ## Features
 * Directly Downloading the latest Spigot, Bukkit, or Vanilla Server build.
