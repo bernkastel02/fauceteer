@@ -9,11 +9,14 @@
     "commander": "^2.15.1",
     "inquirer": "^5.2.0",
     "js-yaml": "^3.11.0",
+    "node-progress-3": "^0.4.3",
     "progress": "^2.0.0",
     "request": "^2.85.0"
   },
   "preferGlobal": true,
-  "bin": "./index.js",
+  "bin": {
+    "fauceteer": "./index.js"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
