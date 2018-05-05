@@ -1,6 +1,6 @@
 {
   "name": "fauceteer-cli",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CLI Application for the SpigotMC Project.",
   "main": "index.js",
   "dependencies": {
