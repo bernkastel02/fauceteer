@@ -13,6 +13,7 @@
     "request": "^2.85.0"
   },
   "preferGlobal": true,
+  "bin": "./index.js",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
