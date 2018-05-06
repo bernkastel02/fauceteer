@@ -14,7 +14,7 @@ This is Fauceteer, a CLI made with Node.js for Spigot!
 
 ## Planned Features
 * Pre-creating servers
-* More to come soon!
+* Backup command
 
 ## Commands
 `fauceteer init` || Creates a pre-made directory for Fauceteer settings.
@@ -25,3 +25,11 @@ This is Fauceteer, a CLI made with Node.js for Spigot!
 
 ## Links
 [Discord Server](https://discord.gg/Y32uH7H)
+
+## Sources
+###### Thank you to these sources for the needed help with the creation of the CLI.
+###### I do not have ownership over any of these sources, as they are owned by others.
+###### The CLI's code is created by myself, with the addition of using NPM modules.
+###### These sources were used to provide links for the `fauceteer latest` command.
+[GetBukkit](https://getbukkit.org) | 
+[md-5's Jenkins CI](https://ci.md-5.net/)
