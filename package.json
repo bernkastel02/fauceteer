@@ -1,13 +1,12 @@
 {
   "name": "fauceteer-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI Application for the SpigotMC Project.",
   "main": "index.js",
   "dependencies": {
     "asciify": "^1.3.5",
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
-    "inquirer": "^5.2.0",
     "js-yaml": "^3.11.0",
     "node-progress-3": "^0.4.3",
     "progress": "^2.0.0",

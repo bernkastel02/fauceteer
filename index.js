@@ -6,12 +6,12 @@ const Spigot = require(__dirname + "/lib/Spigot.js");
 const version = require(__dirname + "/package.json").version;
 const fs = require("fs");
 const yaml = require('js-yaml');
-const inquirer = require('inquirer');
 const https = require("https");
 const request = require("request");
 
-program
-    .version('Fauceteer CLI Version "0.01.1.0037 (Astral)"', "-v, --version")
+
+program.version('Fauceteer CLI Version [' + version + ']', "-v, --version")
+
 
 
 // Initialize Command
@@ -30,6 +30,16 @@ program
     .action(function(type) {
         general.m("This is not a finished feature!")
     });
+
+// Run Server
+program
+    .command("run")
+    .description("Run a server.")
+    .action(function() {
+        javaversion(function(err, version) {
+            if (err) return general.e("Java is not installed!")
+        })
+    })
 
 
 
@@ -126,7 +136,7 @@ program.on("--help", function() {
         "\n\n" +
         general.m("Welcome to the Fauceteer CLI!") +
         general.m("Here, you will find use for the commands, like starting a new Spigot server, or downloading some plugins!") +
-        general.m("This CLI is versioned at [0.01.1.0037 (Astral)].\n") +
+        general.m("This CLI is versioned at [" + version + "].\n") +
         general.h("Current Commands") +
         general.command("init || Initializes a new .fauceteer directory.") +
         general.command("new <type> || Generates a new server, type being [server] or [plugin]") +
@@ -143,7 +153,7 @@ program.on("-h", function() {
         "\n\n" +
         general.m("Welcome to the Fauceteer CLI!") +
         general.m("Here, you will find use for the commands, like starting a new Spigot server, or downloading some plugins!") +
-        general.m("This CLI is versioned at [0.01.1.0037 (Astral)].\n") +
+        general.m("This CLI is versioned at [" + version + "].\n") +
         general.h("Current Commands") +
         general.command("init || Initializes a new .fauceteer directory.") +
         general.command("new <type> || Generates a new server, type being [server] or [plugin]") +
@@ -164,7 +174,7 @@ if (!program.args.length) {
         "\n\n" +
         general.m("Welcome to the Fauceteer CLI!") +
         general.m("Here, you will find use for the commands, like starting a new Spigot server, or downloading some plugins!") +
-        general.m("This CLI is versioned at [0.01.1.0037 (Astral)].\n") +
+        general.m("This CLI is versioned at [" + version + "].\n") +
         general.h("Current Commands") +
         general.command("init || Initializes a new .fauceteer directory.") +
         general.command("new <type> || Generates a new server, type being [server] or [plugin]") +
@@ -192,4 +202,24 @@ function randomQuote() {
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+function javaversion(callback) {
+    var spawn = require('child_process').spawn('java', ['-version']);
+    spawn.on('error', function(err) {
+        return callback(err, null);
+    })
+    spawn.stderr.on('data', function(data) {
+        data = data.toString().split('\n')[0];
+        var javaVersion = new RegExp('java version').test(data) ? data.split(' ')[2].replace(/"/g, '') : false;
+        if (javaVersion != false) {
+            // TODO: We have Java installed
+            return callback(null, javaVersion);
+        }
+        else {
+            // TODO: No Java installed
+
+        }
+    });
 }
